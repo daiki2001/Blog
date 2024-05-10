@@ -1,0 +1,42 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    background-color: aliceblue;
+}
+
+header {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+header h1 {
+    padding: 10px;
+    background-color: black;
+    color: aliceblue;
+}
+
+#navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    background-color: black;
+}
+
+#navList li {
+    margin: 0px 5px;
+    padding: 20px 50px;
+    position: relative;
+    left: 5px;
+    background-color: brown;
+    color: aliceblue;
+    opacity: 60%;
+    list-style-type: none;
+}
+
+#navList li:hover {
+    opacity: 100%;
+}
