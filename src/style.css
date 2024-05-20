@@ -9,12 +9,11 @@ header {
     padding: 0px;
     width: 100%;
     box-sizing: border-box;
-    background-color: black;
 }
 
 header h1 {
     padding: 10px;
-    background-color: black;
+    background-color: #000810;
     color: aliceblue;
 }
 
@@ -23,15 +22,19 @@ header h1 {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    background-color: black;
+    background-color: #000810;
 }
 
 #navList li {
     margin: 0px 5px;
     padding: 20px 50px;
+    width: 196px;
+    height: 64px;
+    box-sizing: border-box;
+    text-align: center;
     position: relative;
     left: 5px;
-    background-color: brown;
+    background-color: #800020;
     color: aliceblue;
     opacity: 60%;
     list-style-type: none;
