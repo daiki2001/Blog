@@ -14,4 +14,9 @@ public class CommentService {
 		System.out.println("Service:getAll");
 		return repository.findAll();
 	}
+
+	public List<? extends CommentDataInterface> getBlogComment(int key) {
+		System.out.println("Service:getBlogComment");
+		return repository.findByBlog(key);
+	}
 }
