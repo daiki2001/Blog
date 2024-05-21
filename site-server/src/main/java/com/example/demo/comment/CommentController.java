@@ -1,4 +1,4 @@
-package com.example.demo.blog;
+package com.example.demo.comment;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BlogController {
+public class CommentController {
 	@Autowired
-	BlogService service;
+	CommentService service;
 	
-	@GetMapping("blog")
+	@GetMapping("blog/comment")
 	@CrossOrigin
-	public List<? extends BlogDataInterface> index() {
-		System.out.println("blog/index");
+	public List<? extends CommentDataInterface> index() {
+		System.out.println("blog/comment");
 		return service.getAll();
 	}
 }

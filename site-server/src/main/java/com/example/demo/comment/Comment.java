@@ -1,28 +1,32 @@
-package com.example.demo.blog;
+package com.example.demo.comment;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import com.example.demo.comment.Comment;
+import com.example.demo.blog.Blog;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "blog")
-public class Blog implements BlogDataInterface {
+@Table(name = "comment")
+public class Comment implements CommentDataInterface {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "blog_id")
+	@Column(name = "id")
 	private int id;
+	
+	@ManyToOne
+	@JoinColumn(name = "blog_id", referencedColumnName = "blog_id")
+	private Blog blog;
 
-	@Column(name = "title", nullable = false)
-	private String title;
+	@Column(name = "name", nullable = false)
+	private String name;
 
 	@Column(name = "article", nullable = false)
 	private String article;
@@ -32,9 +36,6 @@ public class Blog implements BlogDataInterface {
 
 	@Column(name = "updatetime", nullable = true)
 	private LocalDateTime updateTime = LocalDateTime.now();
-
-    @OneToMany(mappedBy = "blog")
-    private List<Comment> comment;
 
 	@Override
 	public int getId() {
@@ -47,13 +48,23 @@ public class Blog implements BlogDataInterface {
 	}
 
 	@Override
-	public String getTitle() {
-		return title;
+	public Blog getBlog() {
+		return blog;
 	}
 
 	@Override
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBlog(Blog blog) {
+		this.blog = blog;
+	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
