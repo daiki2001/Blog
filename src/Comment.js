@@ -7,7 +7,6 @@ function Comment(blog) {
     useEffect(() => {
         console.log("call useEffect START");
         const path = 'http://localhost:8080/blog/comment/' + blog.blog.id;
-        console.log(blog);
         console.log("PATH: " + path);
         fetch(path).then(res => {
             res.json().then(value => {

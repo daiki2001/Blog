@@ -1,10 +1,10 @@
 import './App.css';
-import Blog from './Blog';
+import AllBlog from './AllBlog';
 
 function App() {
     return (
         <div className="App">
-            <Blog />
+            <AllBlog />
         </div>
     );
 }
