@@ -11,17 +11,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.BlogService;
+
 @RestController
 public class CommentController {
 	@Autowired
-	CommentService service;
+	BlogService service;
 
 	// 一覧取得
 	@GetMapping("blog/comment")
 	@CrossOrigin
 	public List<? extends CommentDataInterface> allComment() {
 		System.out.println("blog/allComment");
-		return service.getAll();
+		return service.getAllComment();
 	}
 
 	// 個別取得
@@ -31,24 +33,24 @@ public class CommentController {
 		System.out.println("blog/comment/"+blog_id);
 		return service.getBlogComment(blog_id);
 	}
-	
-//	コメントの追加
+
+	// コメントの追加
 	@PostMapping("/blog/comment/add")
 	@CrossOrigin
 	public int add(@RequestBody Comment comment) {
 		System.out.println("index/blog/comment/add(post)");
 		return service.add(comment);
 	}
-	
-//	コメントの編集
+
+	// コメントの編集
 	@PostMapping("/blog/comment/update")
 	@CrossOrigin
 	public int update(@RequestBody Comment comment) {
 		System.out.println("index/blog/comment/update(post)");
 		return service.add(comment);
 	}
-	
-//	コメントの削除
+
+	// コメントの削除
 	@DeleteMapping("/blog/comment/delete")
 	@CrossOrigin
 	public void delete(@RequestBody Comment comment) {
