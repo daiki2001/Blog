@@ -116,10 +116,10 @@ function AllBlog() {
     }
 
     return (
-        <div id='Blog'>
+        <div className='Blog'>
             <h2>全記事</h2>
             {data.map((item, index) => (
-                <div key={index} id='Blog_line'>
+                <div key={index} className='Blog_line'>
                     <h3>{item.title}</h3>
                     <button type='submit' onClick={() => updateData(item)}>編集</button>
                     <button type='submit' onClick={() => deleteData(item)}>削除</button>

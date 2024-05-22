@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './Blog.css';
 import Comment from './Comment';
 
-function Blog(blog) {
-    let [data, setData] = useState(blog);
-    console.log(data);
+function Blog(blog_id) {
+    let [data, setData] = useState([]);
 
     useEffect(() => {
         console.log("call useEffect START");
-        const path = 'http://localhost:8080/blog'
+        const path = 'http://localhost:8080/blog/' + blog_id.blog_id
         console.log("PATH: " + path);
         fetch(path).then(res => {
             res.json().then(value => {
@@ -25,14 +24,12 @@ function Blog(blog) {
     }, []);
 
     return (
-        <div id='Blog'>
-            {data.map((item, index) => (
-                <div key={index} id='Blog_line'>
-                    <h2>{item.title}</h2>
-                    <p>{item.article}</p>
-                    <Comment blog={item} />
-                </div>
-            ))}
+        <div className='Blog'>
+            <div className='Blog_line'>
+                <h2>{data.title}</h2>
+                <p>{data.article}</p>
+            </div>
+            <Comment blog={data} />
         </div>
     );
 }
