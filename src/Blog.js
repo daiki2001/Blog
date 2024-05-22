@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import './Blog.css';
 import Comment from './Comment';
 
 function Blog() {
     let [data, setData] = useState([]);
+
     useEffect(() => {
         console.log("call useEffect START");
         fetch('http://localhost:8080/blog').then(res => {
@@ -20,14 +22,14 @@ function Blog() {
     }, []);
 
     return (
-        <div>
+        <div id='Blog'>
             {data.map((item, index) => (
-                <div key={index}>
+                <div key={index} id='Blog_line'>
                     <h2>{item.title}</h2>
                     <p>{item.article}</p>
+                    <Comment blog={item} />
                 </div>
             ))}
-            <Comment />
         </div>
     );
 }

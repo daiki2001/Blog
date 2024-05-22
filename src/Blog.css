@@ -1,0 +1,11 @@
+#Blog {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Blog_line {
+    width: 80%;
+    border-bottom: 1px solid black;
+}
