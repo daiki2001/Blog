@@ -37,7 +37,6 @@ function AllBlog() {
 
     // 記事情報を追加する関数
     const addData = (formData) => {
-        console.log(formData);
         fetch('http://localhost:8080/blog/add', {
             method: 'POST',
             headers: {
@@ -56,6 +55,29 @@ function AllBlog() {
             })
             .catch(error => {
                 console.error('Error adding data:', error);
+            });
+    }
+
+    // 記事情報を更新する関数
+    const updateData = (formData) => {
+        fetch('http://localhost:8080/blog/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => {
+                if (res.ok) {
+                    // 記事情報が正常に更新された場合、記事情報を再取得して更新する
+                    return fetchBlogData();
+                } else {
+                    // エラーメッセージを表示するなどの処理を行う
+                    console.error('Failed to update data');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating data:', error);
             });
     }
 
@@ -90,7 +112,6 @@ function AllBlog() {
             title: formData.get('title'),
             article: formData.get('article')
         };
-        console.log(newData);
         addData(newData);
     }
 
@@ -100,6 +121,7 @@ function AllBlog() {
             {data.map((item, index) => (
                 <div key={index} id='Blog_line'>
                     <h3>{item.title}</h3>
+                    <button type='submit' onClick={() => updateData(item)}>編集</button>
                     <button type='submit' onClick={() => deleteData(item)}>削除</button>
                     <p>{item.article}</p>
                 </div>
