@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,21 @@ public class BlogController {
 	public int add(@RequestBody Blog blog) {
 		System.out.println("index/blog/add(post)");
 		return service.add(blog);
+	}
+	
+//	記事の更新
+	@PostMapping("/blog/update")
+	@CrossOrigin
+	public int update(@RequestBody Blog blog) {
+		System.out.println("index/blog/update(post)");
+		return service.add(blog);
+	}
+	
+//	記事の削除
+	@DeleteMapping("/blog/delete")
+	@CrossOrigin
+	public void delete(@RequestBody Blog blog) {
+		System.out.println("index/blog/delete(delete)");
+		service.delete(blog);
 	}
 }

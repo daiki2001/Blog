@@ -31,4 +31,12 @@ public class BlogService {
 		}
 		return 0;
 	}
+
+	// 削除
+	public void delete(BlogDataInterface item) {
+		System.out.println("Service:delete [" + item + "]");
+		if (item instanceof Blog) {
+			repository.delete((Blog)item);
+		}
+	}
 }
