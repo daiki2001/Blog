@@ -47,7 +47,7 @@ function AllBlog() {
         })
             .then(res => {
                 if (res.ok) {
-                    // 在庫情報が正常に追加された場合、フルーツデータを再取得して更新する
+                    // 記事情報が正常に追加された場合、記事情報を再取得して更新する
                     return fetchBlogData();
                 } else {
                     // エラーメッセージを表示するなどの処理を行う
@@ -56,6 +56,29 @@ function AllBlog() {
             })
             .catch(error => {
                 console.error('Error adding data:', error);
+            });
+    }
+
+    // 記事情報を削除する関数
+    const deleteData = (formData) => {
+        fetch('http://localhost:8080/blog/delete', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => {
+                if (res.ok) {
+                    // 記事情報が正常に削除された場合、記事情報を再取得して更新する
+                    return fetchBlogData();
+                } else {
+                    // エラーメッセージを表示するなどの処理を行う
+                    console.error('Failed to delete data');
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting data:', error);
             });
     }
 
@@ -77,6 +100,7 @@ function AllBlog() {
             {data.map((item, index) => (
                 <div key={index} id='Blog_line'>
                     <h3>{item.title}</h3>
+                    <button type='submit' onClick={() => deleteData(item)}>削除</button>
                     <p>{item.article}</p>
                 </div>
             ))}
