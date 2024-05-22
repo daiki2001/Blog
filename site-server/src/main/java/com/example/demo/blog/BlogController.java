@@ -15,40 +15,40 @@ import org.springframework.web.bind.annotation.RestController;
 public class BlogController {
 	@Autowired
 	BlogService service;
-	
-//	一覧取得
+
+	// 一覧取得
 	@GetMapping("/")
 	@CrossOrigin
 	public List<? extends BlogDataInterface> index() {
 		System.out.println("index");
 		return service.getAll();
 	}
-	
-//	個別取得
+
+	// 個別取得
 	@GetMapping("/blog/{id}")
 	@CrossOrigin
 	public BlogDataInterface blog(@PathVariable("id") int id) {
 		System.out.println("index/blog/" + id);
 		return service.getById(id);
 	}
-	
-//	記事の追加
+
+	// 記事の追加
 	@PostMapping("/blog/add")
 	@CrossOrigin
 	public int add(@RequestBody Blog blog) {
 		System.out.println("index/blog/add(post)");
 		return service.add(blog);
 	}
-	
-//	記事の更新
+
+	// 記事の編集
 	@PostMapping("/blog/update")
 	@CrossOrigin
 	public int update(@RequestBody Blog blog) {
 		System.out.println("index/blog/update(post)");
 		return service.add(blog);
 	}
-	
-//	記事の削除
+
+	// 記事の削除
 	@DeleteMapping("/blog/delete")
 	@CrossOrigin
 	public void delete(@RequestBody Blog blog) {
