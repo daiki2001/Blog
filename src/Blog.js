@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './Blog.css';
 import Comment from './Comment';
 
-function Blog(blog_id) {
+function Blog(props) {
     let [data, setData] = useState([]);
 
     useEffect(() => {
         console.log("call useEffect START");
-        const path = 'http://localhost:8080/blog/' + blog_id.blog_id
+        const path = 'http://localhost:8080/blog/' + props.blog
         console.log("PATH: " + path);
         fetch(path).then(res => {
             res.json().then(value => {

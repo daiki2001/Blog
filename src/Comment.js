@@ -119,9 +119,15 @@ function Comment(props) {
         event.preventDefault();
         const formData = new FormData(event.target);
         const newData = {
+            blog: {
+                id: parseInt(props.blog.id),
+                title: props.blog.title,
+                article: props.blog.article,
+                postTime: props.blog.postTime,
+                updateTime: props.blog.updateData
+            },
             name: formData.get('name'),
-            article: formData.get('article'),
-            blog: parseInt(props.blog.id)
+            article: formData.get('article')
         };
         addData(newData);
     }

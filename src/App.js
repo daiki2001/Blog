@@ -5,8 +5,8 @@ import Blog from './Blog';
 function App() {
     return (
         <div className="App">
-            <AllBlog />
-            {/* <Blog blog_id={1} /> */}
+            {/* <AllBlog /> */}
+            <Blog blog={1} />
         </div>
     );
 }
