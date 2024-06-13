@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './Blog.css';
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import Comment from './Comment';
+import './Article.css';
 
-function Blog(props) {
+function Article() {
+    const { id } = useParams();
     let [data, setData] = useState([]);
 
     useEffect(() => {
         console.log("call useEffect START");
-        const path = 'http://localhost:8080/blog/' + props.blog
-        console.log("PATH: " + path);
+        const path = `http://localhost:8080/blog/${id}`;
+        console.log(`PATH: ${path}`);
         fetch(path).then(res => {
             res.json().then(value => {
                 console.log(value);
@@ -31,7 +33,7 @@ function Blog(props) {
             </div>
             <Comment blog={data} />
         </div>
-    );
+    )
 }
 
-export default Blog
+export default Article

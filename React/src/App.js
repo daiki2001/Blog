@@ -1,14 +1,14 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // ページの共通部分
 import Header from './Common/Header';
 import Footer from './Common/Footer';
+import './App.css';
 
 // 各ページのページコンポーネント
 import Home from './Home';
-import AllBlog from './AllBlog';
-import Blog from './Blog';
+import Articles from './Articles/Articles';
+import Article from './Articles/Article';
 import Notfound from './Notfound';
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
                 {/* 各ページへのルート設定 */}
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/Blog" element={<AllBlog />} />
+                    <Route path="/Blog" element={<Articles />} />
+                    <Route path="/Blog/:id" element={<Article />} />
                     <Route path="*" element={<Notfound />} />
                 </Routes>
                 {/* <Blog blog={1} /> */}

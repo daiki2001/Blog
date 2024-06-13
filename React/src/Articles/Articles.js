@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Blog.css';
+import './Article.css';
 
-function AllBlog() {
+function Articles() {
     let [data, setData] = useState([]);
 
     useEffect(() => {
@@ -142,4 +142,4 @@ function AllBlog() {
     );
 }
 
-export default AllBlog
+export default Articles
