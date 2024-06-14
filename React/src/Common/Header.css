@@ -1,0 +1,41 @@
+header {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0px;
+    padding: 10px;
+    background-color: #0040ff;
+    color: aliceblue;
+}
+
+nav ul {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    background-color: #0040ff;
+}
+
+nav ul li {
+    margin: 0px 5px;
+    padding: 20px 50px;
+    width: 196px;
+    height: 64px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    left: 5px;
+    background-color: #30c110;
+    color: aliceblue;
+    opacity: 60%;
+    list-style-type: none;
+}
+
+nav ul li:hover {
+    opacity: 100%;
+}
