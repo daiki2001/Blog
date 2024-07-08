@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.BlogService;
@@ -56,5 +57,15 @@ public class BlogController {
 	public void delete(@RequestBody Blog blog) {
 		System.out.println("index/blog/delete(delete)");
 		service.delete(blog);
+	}
+
+	// あいまい検索
+	@PostMapping("/blog/find")
+	@CrossOrigin
+	public List<? extends BlogDataInterface> find(@RequestParam String find) {
+		System.out.println("index/blog/find");
+		List<? extends BlogDataInterface> aaa = service.find(find);
+		System.out.println(aaa);
+		return aaa;
 	}
 }

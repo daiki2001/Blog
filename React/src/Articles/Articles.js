@@ -104,6 +104,19 @@ function Articles() {
             });
     }
 
+    // 記事を検索する関数
+    const findData = (word) => {
+        fetch('http://localhost:8080/blog/find?word=${word}')
+            .then(res => res.json()
+                .then(data => {
+                    console.log(data);
+                    setData(data);
+                })
+                .catch(error => {
+                    console.error('Error finding data:', error);
+                }));
+    }
+
     // フォームから送信された際の処理
     const handleSubmit = (event) => {
         event.preventDefault();

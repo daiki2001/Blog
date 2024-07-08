@@ -52,6 +52,12 @@ public class BlogService {
 			blogRepository.delete((Blog)item);
 		}
 	}
+
+	// あいまい検索
+	public List<? extends BlogDataInterface> find(String word) {
+		System.out.println("BlogService:find");
+		return blogRepository.fuzzySearch(word);
+	}
 	
 	// コメント
 
